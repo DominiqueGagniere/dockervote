@@ -1,0 +1,26 @@
+version: '3'
+services:
+  proxy: 
+    image: ./proxy #!
+    container_name: proxy
+    ports:
+      - "80:80"
+    networks:
+      - # Utilise le réseau du frontend
+  vote: 
+    image: ./vote #!
+    container_name: vote
+    ports:
+      - "8181:80"
+    networks:
+      - # Pas de specification dans le TP 
+  result: 
+    image: ./result
+    container_name: results # results ≠ result
+    ports:
+      - "5858:80"
+  worker: 
+    image: ./worker
+  # redis:alpine 
+  # always:restart ? 
+  # 
